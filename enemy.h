@@ -14,7 +14,8 @@ class enemy {
 public:
     enemy(int x, int y);
     void mover();
-    void dibujar();
+    void dibujar_e1();
+    void dibujar_e2();
 
     void disparar();
 

@@ -281,7 +281,11 @@ void game::dibujar() {
     }
 
     for (auto& enemigo : enemigos) {
-        enemigo.dibujar();
+        if (nivelActual == 2) {
+            enemigo.dibujar_e2();
+        } else {
+            enemigo.dibujar_e1();
+        }
 
         if (enemigo.disparoEnemigoActivo) {
             color_rgb(255, 0, 0);
@@ -308,4 +312,3 @@ void game::dibujar() {
 
     refresca();
 }
-
