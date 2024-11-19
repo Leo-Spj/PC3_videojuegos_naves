@@ -67,7 +67,7 @@ void game::manejarEntradas() {
         if (t == ESPACIO) {
             Bala nuevaBala = {player.getX() + 40, player.getY(), std::chrono::steady_clock::now()};
             balas.push_back(nuevaBala);
-            PlaySound(TEXT("C:/Users/Leo/Downloads/Videojuegos/VideoJuego_Naves/Sonido.wav"), NULL, SND_ASYNC | SND_NOSTOP);
+            PlaySound(TEXT("C:/Users/Leo/Downloads/Videojuegos/VideoJuego_Naves/explosion.wav"), NULL, SND_ASYNC | SND_NOSTOP);
         }
     }
 }
@@ -90,7 +90,7 @@ void game::actualizar() {
 
         if (rand() % 100 < 5) {
             enemigo.disparar();
-            PlaySound(TEXT("C:/Users/Leo/Downloads/Videojuegos/VideoJuego_Naves/sonido_enemigo.wav"), NULL, SND_ASYNC | SND_NOSTOP);
+            PlaySound(TEXT("C:/Users/Leo/Downloads/Videojuegos/VideoJuego_Naves/disparo.wav"), NULL, SND_ASYNC | SND_NOSTOP);
         }
 
         if (enemigo.disparoEnemigoActivo) {
@@ -130,7 +130,7 @@ void game::verificarColisiones() {
             vida--;
 
             if (vida <= 0) {
-                PlaySound(TEXT("C:/Users/Leo/Downloads/Videojuegos/VideoJuego_Naves/Sonido.wav"), NULL, SND_ASYNC);
+                PlaySound(TEXT("C:/Users/Leo/Downloads/Videojuegos/VideoJuego_Naves/explosion.wav"), NULL, SND_ASYNC);
 
                 juegoActivo = false;
                 enemigos.clear();
@@ -145,14 +145,14 @@ void game::verificarColisiones() {
                 vida--;
 
                 if (vida <= 0) {
-                    PlaySound(TEXT("C:/Users/Leo/Downloads/Videojuegos/VideoJuego_Naves/Sonido.wav"), NULL, SND_ASYNC);
+                    PlaySound(TEXT("C:/Users/Leo/Downloads/Videojuegos/VideoJuego_Naves/disparo.wav"), NULL, SND_ASYNC);
 
                     juegoActivo = false;
                     enemigos.clear();
                     return;
                 }
 
-                PlaySound(TEXT("C:/Users/Leo/Downloads/Videojuegos/VideoJuego_Naves/sonido_enemigo.wav"), NULL, SND_ASYNC);
+                PlaySound(TEXT("C:/Users/Leo/Downloads/Videojuegos/VideoJuego_Naves/explosion.wav"), NULL, SND_ASYNC);
 
                 enemigo.disparoEnemigoActivo = false;
             }
@@ -171,7 +171,7 @@ void game::verificarColisiones() {
                 itBala = balas.erase(itBala);
                 enemigos.erase(enemigos.begin() + i);
                 score += 10;
-                PlaySound(TEXT("C:/Users/Leo/Downloads/Videojuegos/VideoJuego_Naves/Sonido.wav"), NULL, SND_ASYNC);
+                PlaySound(TEXT("C:/Users/Leo/Downloads/Videojuegos/VideoJuego_Naves/explosion.wav"), NULL, SND_ASYNC);
 
                 cont++;
                 colisionDetectada = true;
