@@ -31,7 +31,7 @@ void player::setColor(const string& color) {
 }
 
 void player::mover() {
-    const int VELOCIDAD = 15;
+    const int VELOCIDAD = 20;
 
     if (GetAsyncKeyState(VK_LEFT) & 0x8000) {
         if (offsetX > 0) {
